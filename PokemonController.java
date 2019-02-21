@@ -36,6 +36,7 @@ public class PokemonController {
                 pokemon.setName(name);
                 pokemon.setHealthPoint(healthPoint);
                 pokemon.setAttackPoint(attackPoint);
+                return;
             }
         }
     }

@@ -1,10 +1,8 @@
-import java.io.File;
-import java.io.IOException;
-
 public class PokemonController {
 
     private static PokemonController instance;
-    
+    private Pokemon[] pokemons = new Pokemon[20];
+
     private PokemonController(){}
     
     public static PokemonController getInstance(){
@@ -14,17 +12,17 @@ public class PokemonController {
         return instance;
     }
 
-    public void save(Pokemon pokemon) throws IOException {
-        String fileName = "./temp/" + pokemon.getName() + ".ser";
-        File file = new File(fileName);
-        file.createNewFile();
-        PokemonSerializer.getInstance().serializePokemon(pokemon, fileName);
+    public void save(String name, Boolean state, Integer healthPoint, Integer attackPoint) {
+        for (int i = 0; i < pokemons.length - 1; i++) {
+            if (pokemons[i] == null) {
+                pokemons[i] = new Pokemon(i, name, state, healthPoint, attackPoint);
+                return;
+            }
+        }
     }
 
-    public Pokemon retrieve(String pokemonName) {
-        Pokemon pokemon = null;
-        String fileName = "./temp/" + pokemonName + ".ser";
-        pokemon = PokemonSerializer.getInstance().deserializePokemon(fileName);
-        return pokemon;
+    public Pokemon[] retrieve() {
+        return this.pokemons;
     }
 }
+ 

@@ -13,7 +13,7 @@ public class PokemonController {
     }
 
     public void save(String name, Boolean state, Integer healthPoint, Integer attackPoint) {
-        for (int i = 0; i < pokemons.length - 1; i++) {
+        for (int i = 0; i < pokemons.length; i++) {
             if (pokemons[i] == null) {
                 pokemons[i] = new Pokemon(i, name, state, healthPoint, attackPoint);
                 return;
@@ -21,8 +21,24 @@ public class PokemonController {
         }
     }
 
-    public Pokemon[] retrieve() {
-        return this.pokemons;
+    public void displayPokemons() {
+        for (int i = 0; i < pokemons.length; i++) {
+            if (pokemons[i] != null) {
+                System.out.println(pokemons[i].getName());
+            }
+        }
     }
+
+    public void edit(Integer id, String name, Integer healthPoint, Integer attackPoint) {
+        for (int i = 0; i < pokemons.length; i++) {
+            if (i == id) {
+                Pokemon pokemon = pokemons[i];
+                pokemon.setName(name);
+                pokemon.setHealthPoint(healthPoint);
+                pokemon.setAttackPoint(attackPoint);
+            }
+        }
+    }
+
 }
  

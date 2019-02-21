@@ -8,13 +8,9 @@ public class Main {
         PokemonController.getInstance().save("pikachu", true, 100, 150);
         PokemonController.getInstance().save("squitle", true, 100, 150);
         PokemonController.getInstance().save("charmander", true, 100, 150);
+        PokemonController.getInstance().save("jj", true, 100, 150);
 
         // retrieve pokemons
-        Pokemon[] pokemons = PokemonController.getInstance().retrieve();
-        for (int i = 0; i < pokemons.length - 1; i++) {
-            if (pokemons[i] != null) {
-                System.out.println(pokemons[i].getName());
-            }
-        }
+        PokemonController.getInstance().displayPokemons();
     }
 }

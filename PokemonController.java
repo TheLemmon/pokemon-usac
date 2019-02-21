@@ -25,9 +25,11 @@ public class PokemonController {
         for (int i = 0; i < pokemons.length; i++) {
             if (pokemons[i] != null) {
                 System.out.println(pokemons[i].getName());
+                System.out.println(pokemons[i].getHealthPoint());
+                System.out.println(pokemons[i].getAttackPoint());
             }
         }
-    }
+    } 
 
     public void edit(Integer id, String name, Integer healthPoint, Integer attackPoint) {
         for (int i = 0; i < pokemons.length; i++) {

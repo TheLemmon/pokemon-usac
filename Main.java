@@ -12,5 +12,10 @@ public class Main {
 
         // retrieve pokemons
         PokemonController.getInstance().displayPokemons();
+
+        PokemonController.getInstance().edit(4, "Paredes", 69, 69);
+
+        // retrieve pokemons
+        PokemonController.getInstance().displayPokemons();
     }
 }
